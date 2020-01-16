@@ -1,43 +1,613 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Илья | Программист</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>Illya | Programmer</title>
 
 	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/slick.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
+<style>
+	#mainpage {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		color: #fff;
+		overflow-x: hidden;
+		min-height: 150px;
+		min-width: 150px;
+	}
+
+	#blinmainp {
+		position: absolute;
+		width: 900px;
+		height: 300px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	#hello {
+		position: relative;
+		margin-top: 50px;
+		font-weight: bold;
+		font-size: 2em;
+		z-index: 2;
+		color: #000;
+	}
+
+	#hellop {
+		position: absolute;
+		top: 50px;
+		background: #fff;
+		width: 5px;
+		height: 35px;
+		z-index: 1;
+		border-radius: 5px;
+		display: block;
+	}
+
+	#nmis {
+		position: relative;
+		font-weight: bold;
+		font-size: 1.5em;
+		color: #000;
+		z-index: 2;
+	}
+
+	#nmisp {
+		position: absolute;
+		top: 88px;
+		left: 130px;
+		background: #fff;
+		width: 0px;
+		height: 26px;
+		z-index: 1;
+		border-radius: 5px;
+	}
+
+	#nm {
+		font-weight: bold;
+		font-size: 9em;
+		position: absolute;
+		top: -27px;
+		left: 220px;
+	    text-shadow: 5px 5px 5px #3b3b3b;
+	}
+
+	.nametxt>span {
+		background-color: #fff;
+		opacity: 0.9;
+		color: #000;
+		border-radius: 5px;
+		padding: -1000px;
+		text-shadow: 5px 5px 5px #212121;
+  		box-shadow: 3px 3px 5px #dfdfdf;
+	}
+
+	#dvlpr {
+		font-size: 4em;
+		font-weight: bold;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	    text-shadow: 5px 5px 5px #212121;
+	}
+
+	#dvlpr>span {
+		background-color: #fff;
+		color: #000;
+		border-radius: 5px;
+	    text-shadow: 5px 5px 5px #212121;
+  		box-shadow: 3px 3px 5px #dfdfdf;
+	}
+
+	#dvlprpanel {
+		position: absolute;
+		background-color: #fff;
+		width: 680px;
+		height: 80px;
+		border-radius: 5px;
+		right: -5px;
+		bottom: -5px;
+		color: #000;
+		display: block;
+	}
+
+	#dvlprpanel>p {
+		position: relative;
+		left: 50px;
+		top: 10px;
+		width: 250px;
+		font-size: 3em;
+		font-weight: bold;
+	}
+
+	#cvd {
+		display: block;
+		background-color: #d9d9d9;
+		color: #000;
+		box-shadow: 3px 3px 5px #2e2e2e;
+		text-shadow: 1px 1px 1px #2e2e2e;
+		border-radius: 15px;
+		font-weight: bold;
+		padding: 10px;
+		font-size: 1.2em;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+
+	#cvd>span {
+		font-size: 1.3em;
+	}
+
+	@media (max-width: 1000px) and (orientation: portrait){
+		#blinmainp {
+			width: 80%;
+			height: 20%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		#hello {
+			margin-top: 5vw;
+			margin-left: 0vw;
+			font-weight: bold;
+			font-size: 3vw;
+		}
+
+		#nmis {
+			margin-left: 0vw;
+			font-weight: bold;
+			font-size: 2.7vw;
+		}
+
+		#hellop {
+			position: absolute;
+			top: 5.3vw;
+			background: #fff;
+			width: 1vw;
+			height: 3vw;
+			left: -0.5vw;
+			z-index: 1;
+			border-radius: 5px;
+			transition: top 1s ease-out 0.5s;
+		}
+
+		#nmisp {
+			position: absolute;
+			top: 8.7vw;
+			left: 15vw;
+			background: #fff;
+			width: 0vw;
+			height: 3vw;
+			z-index: 1;
+			border-radius: 5px;
+		}
+
+		#nm {
+			font-weight: bold;
+			font-size: 15vw;
+			position: relative;
+			top: -15vw;
+			left: 20vw;
+		    text-shadow: 5px 5px 5px #3b3b3b;
+		}
+
+		#dvlpr {
+			font-size: 5.5vw;
+			font-weight: bold;
+			position: absolute;
+			bottom: 0vw;
+			right: 0;
+		    text-shadow: 5px 5px 5px #212121;
+		}
+
+		#dvlpr>span {
+			background-color: #fff;
+			color: #000;
+			border-radius: 5px;
+		    text-shadow: 5px 5px 5px #212121;
+	  		box-shadow: 3px 3px 5px #dfdfdf;
+		}
+
+		#dvlprpanel {
+			position: absolute;
+			background-color: #fff;
+			width: 59vw;
+			height: 7vw;
+			border-radius: 5px;
+			right: -0.3vw;
+			bottom: -0.5vw;
+			color: #000;
+		}
+
+		#dvlprpanel>p {
+			position: relative;
+			left: 30px;
+			top: 10%;
+			width: 50vw;
+			font-size: 5vw;
+			font-weight: bold;
+		}
+
+		#cvd {
+			border-radius: 10px;
+			padding: 5px;
+			font-size: 3vw;
+			bottom: 0;
+			left: 0px;
+		}
+
+		#cvd>span {
+			font-size: 1.3em;
+		}
+	}
+
+	@media (max-width: 1000px) and (orientation: landscape){
+		#mainpage {
+			overflow-x: hidden;
+		}
+
+		#blinmainp {
+			width: 70%;
+			height: 50%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		#hello {
+			margin-top: 5vw;
+			margin-left: 0vw;
+			font-weight: bold;
+			font-size: 3vw;
+		}
+
+		#nmis {
+			margin-left: 0vw;
+			font-weight: bold;
+			font-size: 2.7vw;
+		}
+
+		#hellop {
+			position: absolute;
+			top: 5.3vw;
+			background: #fff;
+			width: 1vw;
+			height: 3vw;
+			left: -0.5vw;
+			z-index: 1;
+			border-radius: 5px;
+			transition: top 1s ease-out 0.5s;
+		}
+
+		#nmisp {
+			position: absolute;
+			top: 8.7vw;
+			left: 15vw;
+			background: #fff;
+			width: 0vw;
+			height: 3vw;
+			z-index: 1;
+			border-radius: 5px;
+		}
+
+		#nm {
+			font-weight: bold;
+			font-size: 10vw;
+			position: relative;
+			top: -10vw;
+			left: 25vw;
+		    text-shadow: 5px 5px 5px #3b3b3b;
+		}
+
+		#dvlpr {
+			font-size: 5.5vw;
+			font-weight: bold;
+			position: absolute;
+			bottom: 0vw;
+			right: 0;
+		    text-shadow: 5px 5px 5px #212121;
+		}
+
+		#dvlpr>span {
+			background-color: #fff;
+			color: #000;
+			border-radius: 5px;
+		    text-shadow: 5px 5px 5px #212121;
+	  		box-shadow: 3px 3px 5px #dfdfdf;
+		}
+
+		#dvlprpanel {
+			position: absolute;
+			background-color: #fff;
+			width: 59vw;
+			height: 7vw;
+			border-radius: 5px;
+			right: -0.3vw;
+			bottom: -0.5vw;
+			color: #000;
+		}
+
+		#dvlprpanel>p {
+			position: relative;
+			left: 30px;
+			top: 10%;
+			width: 50vw;
+			font-size: 5vw;
+			font-weight: bold;
+		}
+
+		#cvd {
+			border-radius: 10px;
+			padding: 5px;
+			font-size: 3vw;
+			bottom: 0;
+			left: 0px;
+		}
+
+		#cvd>span {
+			font-size: 1.3em;
+		}
+	}
+
+	@media(max-width: 500px) and (min-height: 300px) {
+		#mainpage {
+			overflow-x: hidden;
+		}
+
+		#blinmainp {
+			width: 100%;
+			height: 30%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		#hello {
+			margin-top: 0;
+			margin-left: 5.7vw;
+			font-weight: bold;
+			font-size: 6vw;
+		}
+
+		#nmis {
+			margin-left: 5.7vw;
+			font-weight: bold;
+			font-size: 4.7vw;
+		}
+
+		#hellop {
+			position: absolute;
+			top: 0.5vw;
+			background: #fff;
+			width: 5px;
+			height: 7vw;
+			left: 5.3vw;
+			z-index: 1;
+			border-radius: 5px;
+		}
+
+		#nmisp {
+			position: absolute;
+			top: 7.5vw;
+			left: 32vw;
+			background: #fff;
+			width: 0px;
+			height: 5vw;
+			z-index: 1;
+			border-radius: 5px;
+		}
+
+		#nm {
+			font-weight: bold;
+			font-size: 19vw;
+			width: 90vw;
+			position: relative;
+			top: 7%;
+			left: 5.7vw;
+		    text-shadow: 5px 5px 5px #3b3b3b;
+		}
+
+		#dvlpr {
+			font-size: 8.5vw;
+			font-weight: bold;
+			position: absolute;
+			bottom: 0;
+			left: 5.7vw;
+		    text-shadow: 5px 5px 5px #212121;
+		}
+
+		#dvlpr>span {
+			background-color: #fff;
+			color: #000;
+			border-radius: 5px;
+		    text-shadow: 5px 5px 5px #212121;
+	  		box-shadow: 3px 3px 5px #dfdfdf;
+		}
+
+		#dvlprpanel {
+			position: absolute;
+			background-color: #fff;
+			width: 95vw;
+			height: 13vw;
+			border-radius: 5px;
+			right: 2.5vw;
+			bottom: -1vw;
+			color: #000;
+		}
+
+		#dvlprpanel>p {
+			position: relative;
+			left: 30px;
+			top: 30%;
+			width: 50vw;
+			font-size: 5vw;
+			font-weight: bold;
+		}
+
+		#cvd {
+			display: none;
+			border-radius: 10px;
+			padding: 5px;
+			font-size: 7vw;
+			bottom: 0;
+			left: 20px;
+		}
+
+		#cvd>span {
+			font-size: 1.3em;
+		}
+	}
+
+
+</style>
+
 <body>
-	<div class="wrapper">
-		<div class="content">
-			<div class="mainpage">
-				<h1>Привет, друг</h1>
-				<h2>Меня зовут Илья..</h2>
-				<p id="maintext">Я full stack разработчик</p>
-				<div id="socialm">
-					<a href="https://www.instagram.com/illuha_kupchenko" id="rota" target="_blank">
-						instagram
-					</a>
-					<a href="https://www.facebook.com/illuhakupchenko" id="rota" target="_blank">
-						facebook
-					</a>
-					<a href="https://t.me/illuha_kupchenko" id="rota" target="_blank">
-						twitter
-					</a>
-					<a href="https://github.com/illuhakupchenko" id="rota" target="_blank">
-						linkedin
-					</a>
-				</div>
-				<button type="button" onclick="scrollab();" class="scroll_down" id="scroll_down"></button>	
-			</div>		
+
+	<header id="menu">
+		<a href="index.html"><button id="logo"><span></span><span></span><span></span><span></span></button></a>
+		<ul>
+			<li><a href="work.html">+projects</a></li>
+			<li><a href="about.html">about</a></li>
+			<li><a href="contacts.html">contacts</a></li>
+		</ul>
+		<button id="toggle"><span></span></button>
+		<div id="menumob">
+			<div id="menin">
+				<a href="work.html">+projects</a><br><br><br>
+				<a href="about.html">about</a><br><br><br>
+				<a href="contacts.html">contacts</a>
+			</div>
 		</div>
 
-		<footer>
-	      <span>Илья Купченко <script>
-	      	var date = new Date(); document.write(date.getFullYear()); </script> ©
-	      </span>
-	    </footer>
+	</header>
+
+	<div id="socialmedia">
+		<ul>
+			<li><a href="https://www.instagram.com/illuha_kupchenko" target="_blank">instagram</a></li>
+			<li><a href="https://www.facebook.com/illuhakupchenko" target="_blank">facebook</a></li>
+			<li><a href="https://www.linkedin.com/in/illuhakupchenko/" target="_blank">linkedin</a></li>
+			<li><a href="https://github.com/illuhakupchenko" target="_blank">github</a></li>
+		</ul>
 	</div>
+
+	<section id="mainpage">
+		<div id="blinmainp">
+			<div id="hellop"></div>
+			<p id="hello"> <span class="hellotxt"></span></p>
+			<div id="nmisp"></div>
+			<p id="nmis"> <span class="nameistxt"></span></p>
+			<a href="" id="cvd"><span>CV</span></a>
+			<p id="nm"><span class="nametxt"></span></p>
+			<p id="dvlpr"><span>I am</span> a PROGRAMME<span>R</span></p>
+			<div id="dvlprpanel"><p>Who I am?</p></div>
+		</div>
+	</section>
+
+	<script src="js/typed.js"></script>
+	<script src="js/mobilemenu.js"></script>
+	<script>
+	   	let paneldvlpr = document.getElementById('dvlprpanel');
+	   	let panelhello = document.getElementById('hellop');
+	   	let panelnmis = document.getElementById('nmisp')
+	   	let widthnmis = panelnmis.clientWidth;
+	   	let dvlprwidth = paneldvlpr.clientWidth;
+
+	   	//alert($(panelhello).offset().top);
+	   	//alert(panelhello.clientHeight);
+
+	   
+	   	Panels(panelhello, 0, 1, 20);
+	   	setTimeout(Panels, 8000, paneldvlpr, dvlprwidth, 2, 35);		
+		setTimeout(Panels, 2100, panelhello, 0, 3, 75); 
+		setTimeout(Panels, 2500, panelnmis, widthnmis, 4, 35); 
+
+		//alert(window.innerWidth * 20 / 100);
+
+
+
+	   	function Panels(obj, counter, check, time) {
+		   	let height = panelhello.clientHeight;
+  		   	let leftnmis = $(panelnmis).position().left;
+	    	let timer = setInterval(function() {
+	    		if (check == 1) {
+		    		counter += 5;
+		    		obj.style.width = counter + 'px';
+
+	   	    		if (window.innerWidth < 500 && (window.innerWidth * 23 / 100 <= counter)){
+	   	    			clearInterval(timer);
+	   	    		}
+	   	    		if (window.innerWidth > 500 && (window.innerWidth * 13 / 100 <= counter)){
+	   	    			clearInterval(timer);
+	   	    		}
+	   	    		else if (counter >= 125 && window.innerWidth > 1000) {
+   	    				clearInterval(timer);
+	   	    		}
+	    		}
+
+	    		if (check == 2) {
+	    			counter -= 5;
+		        	obj.style.width = counter + 'px';
+   	    			if (counter <= 0) {
+   	    				clearInterval(timer);
+   	    				obj.style.display = 'none'; 
+   	    			}
+	    		}
+
+	    		if (check == 3) {
+	    			counter -= 5;
+	    			height -= 5;
+	    			document.getElementById('hello').style.color = '#fff';
+	    			obj.style.height = height + 'px';
+	    			if (height <= 0) {
+   	    				clearInterval(timer);
+   	    				obj.style.display = 'none'; 
+   	    			}
+	    		}
+
+	    		if (check == 4) {
+	    			counter += 5;
+	    			leftnmis -= 5;
+		    		obj.style.width = counter + 'px';
+		    		obj.style.left = leftnmis + 'px';
+		    		if (window.innerWidth < 500 && (window.innerWidth * 25.5 / 100 <= counter)){
+		    			setTimeout(Panels, 2500, panelnmis, panelnmis.clientWidth, 5, 35); 
+	   	    			clearInterval(timer);
+	   	    		}
+	   	    		if (window.innerWidth > 500 && (window.innerWidth * 15.5 / 100 <= counter)){
+		    			setTimeout(Panels, 2500, panelnmis, panelnmis.clientWidth, 5, 35); 
+	   	    			clearInterval(timer);
+	   	    		}
+	   	    		else if (counter >= 130 && window.innerWidth > 1000) {
+   	    				clearInterval(timer);
+   						setTimeout(Panels, 2500, panelnmis, panelnmis.clientWidth, 5, 35); 
+	   	    		}
+	    		}
+
+	    		if (check == 5) {
+	    			counter -= 5;
+	    			leftnmis += 5;
+	    			obj.style.left = leftnmis + 'px';
+		        	obj.style.width = counter + 'px';
+	    			document.getElementById('nmis').style.color = '#fff';
+   	    			if (counter <= 0) {
+   	    				clearInterval(timer);
+   	    			}
+	    		}
+
+
+      		}, time);
+	   	}
+	   	
+	</script>
+
 </body>
 </html>
